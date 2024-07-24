@@ -49,7 +49,7 @@ import { defineComponent } from 'vue';
 interface Comment {
   id: number;
   text: string;
-  username: string; // Updated to use the `username` field
+  username: string;
 }
 
 interface Book {
@@ -85,7 +85,7 @@ export default defineComponent({
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         this.book = await response.json();
-        console.log(this.book); // Log the book data for debugging
+        console.log(this.book);
       } catch (error) {
         console.error('Error fetching book details:', error);
       }

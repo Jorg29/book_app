@@ -86,24 +86,26 @@ export default defineComponent({
   },
   computed: {
     filteredBooks(): Book[] {
-      let filtered = this.books.filter(book =>
+      return this.books.filter(book =>
         book.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
         book.author.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
         book.genre.toLowerCase().includes(this.searchQuery.toLowerCase())
       );
-
-      if (this.selectedFilter === 'newest') {
-        filtered.sort((a, b) => new Date(b.publicationDate).getTime() - new Date(a.publicationDate).getTime());
-      } else if (this.selectedFilter === 'oldest') {
-        filtered.sort((a, b) => new Date(a.publicationDate).getTime() - new Date(b.publicationDate).getTime());
-      }
-      return filtered;
     }
+  },
+  watch: {
+    selectedFilter: 'fetchBooks'
   },
   methods: {
     async fetchBooks() {
       try {
-        const response = await axiosInstance.get('/books/');
+        let url = '/books/';
+        if (this.selectedFilter === 'newest') {
+          url += '?ordering=-publication_date';
+        } else if (this.selectedFilter === 'oldest') {
+          url += '?ordering=publication_date';
+        }
+        const response = await axiosInstance.get(url);
         this.books = response.data.map((book: any) => ({
           id: book.id,
           title: book.title,
