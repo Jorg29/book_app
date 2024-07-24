@@ -1,0 +1,373 @@
+
+  .top-menu {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    z-index: 1000;
+  }
+
+  .menu-button-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .menu-button {
+    padding: 10px 28px;
+    font-size: 1.2em;
+    background-color: #015871;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .menu-button:hover {
+    background-color: #015871;
+  }
+
+  .dropdown-content {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 10px;
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 14px 28px;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    background: radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
+    overflow: hidden;
+  }
+
+  .ocean {
+    height: 20%;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #015871;
+  }
+
+  .wave {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    position: absolute;
+    top: -198px;
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .wave:nth-of-type(2) {
+    top: -175px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+    opacity: 1;
+  }
+
+  @keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1600px;
+    }
+  }
+
+  @keyframes swell {
+    0%, 100% {
+      transform: translate3d(0, -25px, 0);
+    }
+    50% {
+      transform: translate3d(0, 5px, 0);
+    }
+  }
+
+  .blur-background {
+    position: fill;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    align-items: top;
+    overflow: hidden;
+    overflow-y: hidden;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: 700px;
+    max-width: 1200px;
+    text-align: center;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    line-height: 1.8;
+    color: #555;
+  }
+
+  .search-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .search {
+    flex: 1;
+    position: relative;
+  }
+
+  .search input[type="text"] {
+    padding: 12px;
+    font-size: 1.2em;
+    width: 100%;
+    box-sizing: border-box;
+    margin-right: 10px;
+  }
+
+  .search i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  .filter {
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-top: 10px;
+  }
+
+  .filter select {
+    padding: 13px;
+    font-size: 1.2em;
+    width: 250px;
+  }
+
+  .add-button {
+    padding: 14px 28px;
+    font-size: 1.2em;
+    background-color: #015871;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .add-button:hover {
+    background-color: #015871;
+  }
+
+  .dropdown-menu-container {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-button {
+    padding: 14px 28px;
+    font-size: 1.2em;
+    background-color: #015871;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 20px 0 0 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+  }
+
+  .dropdown-button:hover {
+    background-color: #015871;
+  }
+
+  .dropdown-content {
+    display: block;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 10px;
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 14px 28px;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f0f0f0;
+  }
+
+  .book-list {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+
+  .book-list thead {
+    display: table;
+    width: 100%;
+  }
+
+  .book-list tbody {
+    display: block;
+    max-height: 365px;
+    overflow-y: auto;
+  }
+
+  .book-list thead, .book-list tbody tr {
+    display: table;
+    width: calc(1100px);
+    table-layout: fixed;
+  }
+
+  .book-list th, .book-list td {
+    border: 1px solid #ccc;
+    padding: 16px;
+    font-size: 1.2em;
+    text-align: left;
+    background-color: #f8f8f8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .book-list th {
+    background-color: #015871;
+    color: white;
+    font-weight: bold;
+  }
+
+  .book-list tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+
+  .book-list th:nth-child(1),
+  .book-list td:nth-child(1) {
+    width: 7.8%;
+  }
+
+  .book-list tr td:nth-child(2) {
+    width: 23.1%;
+  }
+
+  .book-list tr td:nth-child(5) {
+    margin-left: -1020px; 
+    width: 23.1%;
+  }
+
+  input[type="text"] {
+    padding: 12px;
+    font-size: 1.2em;
+    margin-top: 10px;
+    width: 250px;
+    box-sizing: border-box;
+  }
+
+  i {
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .search-filter {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .search input[type="text"] {
+      margin-bottom: 10px;
+    }
+
+    .filter select {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .add-button {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .dropdown-button {
+      border-radius: 10px;
+    }
+
+    .dropdown-content {
+      width: 100%;
+      left: unset;
+      top: 100%;
+    }
+  }
+
